@@ -54,4 +54,38 @@ export const startSetNotes = () => {
     });
   };
 };
+
+
+// REMOVE_NOTE
+export const removeNote = ({ id } = {}) => ({
+  type: 'REMOVE_NOTE',
+  id
+});
+
+export const startRemoveNote = ({id} = {}) => {
+return (dispatch, getState) => {
+  const uid = getState().auth.uid;
+  return database.ref(`users/${uid}/notes/${id}`).remove().then(()=> {
+    dispatch(removeNote({ id }));
+  });
+};
+};
+
+
+// EDIT_NOTE
+export const editNote = (id, updates) => ({
+  type: 'EDIT_NOTE',
+  id,
+  updates
+});
+
+export const startEditNote = (id, updates) => {
+return (dispatch, getState) => {
+  const uid = getState().auth.uid;
+  return database.ref(`users/${uid}/notes/${id}`).update(updates).then(()=> {
+    dispatch(editNote( id , updates));
+  }); 
+};
+};
+
  

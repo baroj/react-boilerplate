@@ -19,7 +19,10 @@ export default class NoteModal extends React.Component {
            
         >
             <h3 className="modal__title">Selected Option</h3>
-            <NoteForm handleClearSelected={this.props.handleClearSelected} onSubmit={this.props.onSubmit}/>
+            <NoteForm 
+                handleClearSelected={this.props.handleClearSelected}
+                onSubmit={this.props.onSubmit} 
+                />
         </Modal>)
 
 

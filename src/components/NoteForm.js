@@ -36,7 +36,7 @@ export default class NoteForm extends React.Component {
             });
         }
 
-        this.props.handleClearSelected();
+        //this.props.handleClearSelected();
     };
 
 
