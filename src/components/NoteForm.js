@@ -35,13 +35,12 @@ export default class NoteForm extends React.Component {
                 theNote: this.state.theNote
             });
         }
-
-        //this.props.handleClearSelected();
     };
 
 
     render() {
         return (
+           
             <form className="form" onSubmit={this.onSubmit}>
                 {this.state.error && <p className="form__error">{this.state.error}</p>}
                 <input
@@ -59,8 +58,8 @@ export default class NoteForm extends React.Component {
                     onChange={this.onNoteChange}
                 >
                 </textarea>
-                <button className="button">Close</button>
-            </form>    
+                <button className="button">Submit</button>
+            </form>  
         )
     }
 

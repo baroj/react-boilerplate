@@ -1,6 +1,22 @@
+.big-button{
+  background: transparent;
+  border: .2rem solid $grey;
+  border-radius: $s-size;
+  color: $grey;
+  font-weight: bold;
+  font-size: $l-size;
+  width: 45%;
+  padding: $m-size;
+  display: block;
+  margin: auto;
+  margin-top: $m-size;
+  box-shadow: 0 0 10px gray;
+}
+
 .button {
-  background: $blue;
+  background: $grey;
   border: none;
+  border-radius: $s-size;
   color: white;
   display: inline-block;
   font-size: $font-size-large;

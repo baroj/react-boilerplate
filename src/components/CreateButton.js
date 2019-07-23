@@ -1,10 +1,10 @@
 import React from 'react'
 
 const CreateButton = (props) =>(
-        <div> 
+        <div className="content-container"> 
             <button className="big-button" onClick= 
                 {props.handleCreate}> 
-                Create Note
+                Make a Note...
             </button> 
         </div>
 ); 

@@ -3,40 +3,37 @@ import {connect} from 'react-redux';
 import CreateButton from '../components/CreateButton';
 import NoteModal from '../components/NoteModal';
 import NoteList from '../components/NoteList';
-import {startAddNote} from '../actions/notes';
+import {setAppId} from '../actions/appAct';
 
 export class DashboardPage extends React.Component {
     state = {
-        notes:[],
-        selectedOption: undefined
+        modalCreate: false
     };
 
     handleCreate = () => {
-        
         this.setState(() => ({
-            selectedOption: 1
+            modalCreate: true
         })); 
     };
 
     handleClearSelected = () => {
-        this.setState( () => ({ selectedOption : undefined }));
+        this.setState( () => ({ modalCreate : false }));
+        this.props.setAppId(0);
+
     };
 
-    onSubmit = (note) => {
-        console.log(note);
-        this.props.startAddNote(note);
-        this.props.history.push('/');
-      };
+    
 
     render() {
         return (
         <div>
         <CreateButton handleCreate={this.handleCreate}/>
         <NoteModal 
-            selectedOption={this.state.selectedOption}
+            modalCreate={this.state.modalCreate}
+            modalIDEdit= {this.props.appState.id}
             handleClearSelected={this.handleClearSelected}
             onSubmit={this.onSubmit}
-        />
+        />   
         <NoteList/>
         
         </div>
@@ -46,8 +43,16 @@ export class DashboardPage extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddNote: (note) => dispatch(startAddNote(note))
-  });
+    setAppId: (id) => dispatch(setAppId(id))
+});
+
+
+const mapStateToProps = (state)=>{
+    return{
+      appState: state.appState
+    };
+}
+
   
-  export default connect(undefined, mapDispatchToProps)(DashboardPage);
+  export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
   

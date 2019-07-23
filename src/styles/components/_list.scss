@@ -8,6 +8,10 @@
 }
 
 .list-body {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-evenly;
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {
     margin-bottom: $l-size;
@@ -16,21 +20,26 @@
 
 .list-item {
   border: 1px solid darken($off-white, 7%);
-  border-top: none;
+  border-radius: $s-size;
   color: $dark-grey;
   display: flex;
   flex-direction: column;
   padding: $s-size;
   text-decoration: none;
   transition: background .3s ease;
+  width: 50%;
+  margin: 0.6rem;
+  margin-top: $s-size;
   &:hover {
     background: $off-white;
+    cursor: pointer;
   }
   @media (min-width: $desktop-breakpoint) {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
     padding: $m-size;
+    width: 31%;
   }
 }
 
